@@ -30,25 +30,30 @@ if (passSpecial === true) {
   combinedArray.push(specialArray);
 }
 
+// created placeholder for array where password will be generated.
+var generatedPassword = [];
+
+// loop that runs through as many times as was requested in the first prompt
+
+for (i=0; i < passLength; i++) {
+
 var arraySelector = Math.floor(Math.random() * combinedArray.length);
 var characterSelector = Math.floor(Math.random() * combinedArray[arraySelector].length);
 
-console.log(arraySelector);
-console.log(characterSelector);
+// console.log(arraySelector);
+// console.log(characterSelector);
 
 var selectedArray = combinedArray[arraySelector];
 var selectedCharacter = selectedArray[characterSelector];
 
-console.log(selectedArray);
-console.log(selectedCharacter);
+// console.log(selectedArray);
+// console.log(selectedCharacter);
 
+generatedPassword.push(selectedCharacter);
 
+}
 
-// for (i=0; i < passLength, i++) {
-  
-
-// }
-
+console.log(generatedPassword);
 
 
 
