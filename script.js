@@ -6,6 +6,8 @@ function writePassword() {
 
 var passLength = prompt("How long would you like your password to be? Please select a number larger than 7 and less than 129.");
 
+// verification that the length of the password meets the requirements of minimum 8 characters, maximum of 128 characters.
+
 if (passLength < 7 || passLength > 128) {
   while (passLength < 7 || passLength > 128) {
     passLength = prompt("Please re-enter, making sure the number is greater than 7 and less than 129");
@@ -17,6 +19,7 @@ var passLower = confirm("Would you like your password to include lowercase lette
 var passNumber = confirm("Would you like your password to include numbers");
 var passSpecial = confirm("Would you like your password to include special characters?");
 
+// verification that at least one of the character types has been selected.
 
 while (passUpper === false && passLower === false && passNumber === false && passSpecial === false) {
 
@@ -27,9 +30,7 @@ var passNumber = confirm("Would you like your password to include numbers");
 var passSpecial = confirm("Would you like your password to include special characters?");
 }
 
-
-
-
+// setting up the arrays that are going to be pulled from.
 
 var upperArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var lowerArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -55,8 +56,8 @@ if (passSpecial === true) {
   combinedArray.push(specialArray);
 }
 
-// created placeholder for array where password will be generated.
-var generatedPassword = [];
+var generatedPassword = []; // created placeholder for array where password will be generated.
+
 
 //creating a while loop to run through password verification. The for loop is going to create the password and if it doesn't pass the verification at the end then it's going to run through the for loop again until it does pass
 
@@ -123,7 +124,6 @@ if (upperTest === false || lowerTest === false || numberTest === false || specia
 else {
   verification = true;
 }
-
 
 
 }
