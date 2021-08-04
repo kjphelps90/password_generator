@@ -6,8 +6,8 @@ function writePassword() {
 
 var passLength = prompt("How long would you like your password to be? Please select a number larger than 7 and less than 129.");
 
-// verification that the length of the password meets the requirements of minimum 8 characters, maximum of 128 characters. Also verifying that the text entered in the input is a number.
 
+// verification that the length of the password meets the requirements of minimum 8 characters, maximum of 128 characters. Also verifying that the text entered in the input is a number.
 
 if ((passLength < 8 || passLength > 128) || isNaN(passLength) === true) {
   while ((passLength < 8 || passLength > 128) || isNaN(passLength) === true) {
@@ -17,7 +17,7 @@ if ((passLength < 8 || passLength > 128) || isNaN(passLength) === true) {
 
 var passUpper = confirm("Would you like your password to include uppercase letters?");
 var passLower = confirm("Would you like your password to include lowercase letters?");
-var passNumber = confirm("Would you like your password to include numbers");
+var passNumber = confirm("Would you like your password to include numbers?");
 var passSpecial = confirm("Would you like your password to include special characters?");
 
 // verification that at least one of the character types has been selected.
@@ -27,7 +27,7 @@ while (passUpper === false && passLower === false && passNumber === false && pas
   alert("You have to select at least one of the character types. Please try again.")
 var passUpper = confirm("Would you like your password to include uppercase letters?");
 var passLower = confirm("Would you like your password to include lowercase letters?");
-var passNumber = confirm("Would you like your password to include numbers");
+var passNumber = confirm("Would you like your password to include numbers?");
 var passSpecial = confirm("Would you like your password to include special characters?");
 }
 
