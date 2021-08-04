@@ -14,14 +14,29 @@ if (passLength < 7 || passLength > 128) {
 
 var passUpper = confirm("Would you like your password to include uppercase letters?");
 var passLower = confirm("Would you like your password to include lowercase letters?");
-var passNumber = confirm("Would you like your password to include numbers")
+var passNumber = confirm("Would you like your password to include numbers");
 var passSpecial = confirm("Would you like your password to include special characters?");
+
+
+while (passUpper === false && passLower === false && passNumber === false && passSpecial === false) {
+
+  alert("You have to select at least one of the character types. Please try again.")
+var passUpper = confirm("Would you like your password to include uppercase letters?");
+var passLower = confirm("Would you like your password to include lowercase letters?");
+var passNumber = confirm("Would you like your password to include numbers");
+var passSpecial = confirm("Would you like your password to include special characters?");
+}
+
+
+
+
 
 var upperArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var lowerArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var numberArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specialArray = ["!", "@", "#", "$", "%", "^", "&", "*"];
 
+// placeholder for combined array.
 var combinedArray = [];
 
 if (passUpper === true) {
@@ -75,7 +90,7 @@ passwordText = generatedPassword.join("");
 
 }
 
-// this is the space after the for loop, but still within the while loop. Here the password will be verified 
+// this is the space after the for loop, but still within the while loop. Here the password will be verified.
 
 var upperRegex = new RegExp("^(?=.*[A-Z])");
 var lowerRegex = new RegExp("^(?=.*[a-z])");
