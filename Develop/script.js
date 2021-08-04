@@ -1,7 +1,16 @@
 // Assignment Code
-var generateBtn = document.querySelector("#generate");
+// var generateBtn = document.querySelector("#generate");
 
-var passLength = prompt("How long would you like your password to be?");
+function writePassword() {
+
+var passLength = prompt("How long would you like your password to be? Please select a number larger than 7 and less than 129.");
+
+if (passLength < 8 || passLength > 128) {
+  while (passLength < 8 || passLength > 128) {
+    passLength = prompt("Please re-enter, making sure the number is greater than 7 and less than 129");
+  }
+}
+
 var passUpper = confirm("Would you like your password to include uppercase letters?");
 var passLower = confirm("Would you like your password to include lowercase letters?");
 var passNumber = confirm("Would you like your password to include numbers")
@@ -37,34 +46,31 @@ var generatedPassword = [];
 
 for (i=0; i < passLength; i++) {
 
+// creating random numbers, one to select which array the generator is going to pull from, and the next to determine which character is going to be pulled from the array
+
 var arraySelector = Math.floor(Math.random() * combinedArray.length);
 var characterSelector = Math.floor(Math.random() * combinedArray[arraySelector].length);
 
-// console.log(arraySelector);
-// console.log(characterSelector);
+
+// This is where the array and character are randomly chosen
 
 var selectedArray = combinedArray[arraySelector];
 var selectedCharacter = selectedArray[characterSelector];
 
-// console.log(selectedArray);
-// console.log(selectedCharacter);
+// The characters are then added to their own array for safekeeping as the loop runs through to completion.
 
 generatedPassword.push(selectedCharacter);
 
-}
+// Converting the array to string
 
-console.log(generatedPassword);
+passwordText = generatedPassword.join("");
 
-
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
+// going to have to write something up that will ensure that each of the selected character types is present in the generated password.
 
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// Possibly create a separate function that will post it to the box
+
+document.getElementById("password").textContent = passwordText;
+
+}
