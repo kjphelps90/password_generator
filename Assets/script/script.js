@@ -1,7 +1,3 @@
-// Assignment Code
-// var generateBtn = document.querySelector("#generate");
-
-
 function writePassword() {
 
 var passLength = prompt("How long would you like your password to be? Please select a number larger than 7 and less than 129.");
@@ -15,20 +11,21 @@ if ((passLength < 8 || passLength > 128) || isNaN(passLength) === true) {
   }
 }
 
-var passUpper = confirm("Would you like your password to include uppercase letters?");
-var passLower = confirm("Would you like your password to include lowercase letters?");
-var passNumber = confirm("Would you like your password to include numbers?");
-var passSpecial = confirm("Would you like your password to include special characters?");
+function charConfirm() {
+  passUpper = confirm("Would you like your password to include uppercase letters?");
+  passLower = confirm("Would you like your password to include lowercase letters?");
+  passNumber = confirm("Would you like your password to include numbers?");
+  passSpecial = confirm("Would you like your password to include special characters?");
+}
+
+charConfirm();
 
 // verification that at least one of the character types has been selected.
 
 while (passUpper === false && passLower === false && passNumber === false && passSpecial === false) {
 
   alert("You have to select at least one of the character types. Please try again.")
-var passUpper = confirm("Would you like your password to include uppercase letters?");
-var passLower = confirm("Would you like your password to include lowercase letters?");
-var passNumber = confirm("Would you like your password to include numbers?");
-var passSpecial = confirm("Would you like your password to include special characters?");
+  charConfirm();
 }
 
 // setting up the arrays that are going to be pulled from.
@@ -38,8 +35,10 @@ var lowerArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m
 var numberArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specialArray = ["!", "@", "#", "$", "%", "^", "&", "*"];
 
-// placeholder for combined array.
-var combinedArray = [];
+
+var combinedArray = []; // placeholder for combined array.
+
+// if statements saying that if they selected yes to one of the particular character types then that array would be added to the 'combinedArray' variable, creating an array of arrays.
 
 if (passUpper === true) {
   combinedArray.push(upperArray);
@@ -66,33 +65,33 @@ var verification = false;
 
 while (verification == false) {
 
-for (i=0; i < passLength; i++) {  // loop that runs through as many times as was requested in the first prompt
+  for (i=0; i < passLength; i++) {  // loop that runs through as many times as was requested in the first prompt
 
 
-// creating random numbers, one to select which array the generator is going to pull from, and the next to determine which character is going to be pulled from the array
+  // creating random numbers, one to select which array the generator is going to pull from, and the next to determine which character is going to be pulled from the array
 
-var arraySelector = Math.floor(Math.random() * combinedArray.length);
-var characterSelector = Math.floor(Math.random() * combinedArray[arraySelector].length);
-
-
-// This is where the array and character are randomly chosen
-
-var selectedArray = combinedArray[arraySelector];
-var selectedCharacter = selectedArray[characterSelector];
-
-// The characters are then added to their own array for safekeeping as the loop runs through to completion.
-
-generatedPassword.push(selectedCharacter);
+  var arraySelector = Math.floor(Math.random() * combinedArray.length);
+  var characterSelector = Math.floor(Math.random() * combinedArray[arraySelector].length);
 
 
-// If everything goes well then the array gets converted to string
+  // This is where the array and character are randomly chosen
 
-passwordText = generatedPassword.join("");
+  var selectedArray = combinedArray[arraySelector];
+  var selectedCharacter = selectedArray[characterSelector];
 
-} // this is where the for loop ends
+  // The characters are then added to their own array for safekeeping as the loop runs through to completion.
+
+  generatedPassword.push(selectedCharacter);
 
 
-// this is the space after the for loop, but still within the while loop. Here the password will be verified.
+  // If everything goes well then the array gets converted to string
+
+  passwordText = generatedPassword.join("");
+
+  } // this is where the FOR loop ends
+
+
+// this is the space after the FOR loop, but still within the WHILE loop. Here the password will be verified to have at least one of each character type selected.
 
 var upperRegex = new RegExp("^(?=.*[A-Z])");
 var lowerRegex = new RegExp("^(?=.*[a-z])");
