@@ -1,4 +1,8 @@
-function writePassword() {
+var generateBtn = document.querySelector("#generate");
+var finalPass = document.querySelector("#password");
+
+
+generateBtn.addEventListener("click", function(){
 
 var passLength = prompt("How long would you like your password to be? Please select a number larger than 7 and less than 129.");
 
@@ -134,6 +138,6 @@ else {
 
 // locates the element that has the ID of "password" and replaces the text with the final password string.
 
-document.getElementById("password").textContent = passwordText;
+finalPass.textContent = passwordText;
 
-}
+})
