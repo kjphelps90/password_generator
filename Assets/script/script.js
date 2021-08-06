@@ -2,7 +2,9 @@ var generateBtn = document.querySelector("#generate");
 var finalPass = document.querySelector("#password");
 
 
-generateBtn.addEventListener("click", function(){
+generateBtn.addEventListener("click", createPassword)
+
+function createPassword(){
 
 var passLength = prompt("How long would you like your password to be? Please select a number larger than 7 and less than 129.");
 
@@ -140,4 +142,4 @@ else {
 
 finalPass.textContent = passwordText;
 
-})
+}
